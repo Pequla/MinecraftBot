@@ -20,6 +20,7 @@ id:
   admin-role: role-id
   death-channel: channel-id
   join-leave-channel: channel-id
+  bot-commands-channel: channel-id
 
 ```
 Now replace  `bot-token-goes-here` with the bot token you copied from the Discord developer page of your application. Chose your own command prefix, but you can also stick with defaults.
@@ -42,6 +43,8 @@ There are few commands you can use:
 With this plugin you get a player death notification on discord as well as the full cordinates where the persion died even with a world notation to avoid any confustion. This is a must if you are running an SMP server.
 
 Player join leave notifications also exist and they are self explanatory, when the player joins or leaves the game it will display the message in the channel specified as well as the total number of players at that time. This feature will make your server much more active since other players will join instantly if they see somone else is online
+
+Custom bot commands channel, this way you dont need to fiddle arround with permissions, all you need to do is to change the `channel-id` place holder under the `bot-commands-channel` property with your bot only commands channel id. Bot will listen only in that channel for commands.
 
 ## More information
 This plugin is extreamly light weight and will consume less then 40MB of ram while running, it might seam a lot but the way you communicate with Discord is really complicated and in order to keep the connection running we need a little bit more RAM. In terms of bandwith no worries there, the bot will consume an average of 10MB per month.

@@ -24,6 +24,7 @@ public final class MinecraftBot extends JavaPlugin {
     private final String adminRole;
     private final String deathChannel;
     private final String joinLeaveChannel;
+    private final String botCommandsChannel;
     private JDA jda;
 
     public MinecraftBot() {
@@ -38,6 +39,7 @@ public final class MinecraftBot extends JavaPlugin {
         this.adminRole = config.getString("id.admin-role");
         this.deathChannel = config.getString("id.death-channel");
         this.joinLeaveChannel = config.getString("id.join-leave-channel");
+        this.botCommandsChannel = config.getString("bot-commands-channel");
     }
 
     @Override
@@ -103,6 +105,10 @@ public final class MinecraftBot extends JavaPlugin {
 
     public String getJoinLeaveChannel() {
         return joinLeaveChannel;
+    }
+
+    public String getBotCommandsChannel() {
+        return botCommandsChannel;
     }
 
     public JDA getJda() {

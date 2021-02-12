@@ -6,3 +6,4 @@ id:
   admin-role: role-id
   death-channel: channel-id
   join-leave-channel: channel-id
+  bot-commands-channel: channel-id
