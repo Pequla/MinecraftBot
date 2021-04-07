@@ -15,6 +15,7 @@ It should look something like this
 # For more details please visit the github page (https://github.com/Pequla/MinecraftBot)
 token: bot-token-goes-here
 server-ip: your-server-address
+command-prefix: !
 id:
   discord-server: discord-server-id
   admin-role: role-id
@@ -34,11 +35,12 @@ After you have done so save the config file and restart the server, the bot you 
 ## Commands
 There are few commands you can use:
  
-- Status Command `!status` and `!online` - Displayes a formated status of the server, what version is it running on, how many players are online and there respectable names
-- Seed Command `!seed` - Displayes the current world's seed
-- Spawn Command `!spawn` - Displays the overworld's spawn point.
-- Rcon Command `!rcon` - Allows server members with certain role to execute the commands on the Minecraft server directly, this feature is extreamly secure and there is no way to bypass restrictions. If you've been using rcon client for a long time, disable it and use this feature instead. Command should be in form of `!rcon <minecraft-command>`.
-- IP Command `!ip` - Displays the server ip address
+- Status Command `<prefix>status` and `<prefix>online` - Displayes a formated status of the server, what version is it running on, how many players are online and there respectable names
+- Seed Command `<prefix>seed` - Displayes the current world's seed
+- Spawn Command `<prefix>spawn` - Displays the overworld's spawn point.
+- Rcon Command `<prefix>rcon` - Allows server members with certain role to execute the commands on the Minecraft server directly, this feature is extreamly secure and there is no way to bypass restrictions. If you've been using rcon client for a long time, disable it and use this feature instead. Command should be in form of `<prefix>rcon <minecraft-command>`.
+- IP Command `<prefix>ip` - Displays the server ip address
+- Help Command `<prefix>help` - Displays a list of available commands
 
 ## Other features
 With this plugin you get a player death notification on discord as well as the full coordinates where the player died even with a world notation to avoid any confustion. This is a must if you are running an SMP server.

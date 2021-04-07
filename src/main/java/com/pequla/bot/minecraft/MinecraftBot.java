@@ -20,6 +20,7 @@ public final class MinecraftBot extends JavaPlugin {
     private final Logger logger;
     private final String token;
     private final String address;
+    private final String prefix;
     private final String discordServer;
     private final String adminRole;
     private final String deathChannel;
@@ -35,11 +36,12 @@ public final class MinecraftBot extends JavaPlugin {
         saveDefaultConfig();
         this.token = config.getString("token");
         this.address = config.getString("server-ip");
+        this.prefix = config.getString("command-prefix");
         this.discordServer = config.getString("id.discord-server");
         this.adminRole = config.getString("id.admin-role");
         this.deathChannel = config.getString("id.death-channel");
         this.joinLeaveChannel = config.getString("id.join-leave-channel");
-        this.botCommandsChannel = config.getString("bot-commands-channel");
+        this.botCommandsChannel = config.getString("id.bot-commands-channel");
     }
 
     @Override
@@ -89,6 +91,10 @@ public final class MinecraftBot extends JavaPlugin {
 
     public String getAddress() {
         return address;
+    }
+
+    public String getPrefix() {
+        return prefix;
     }
 
     public String getDiscordServer() {

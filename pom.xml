@@ -6,7 +6,7 @@
 
     <groupId>com.pequla.bot.minecraft</groupId>
     <artifactId>minecraft-bot</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
     <packaging>jar</packaging>
 
     <name>MinecraftBot</name>
@@ -80,7 +80,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>4.2.1_254</version>
+            <version>4.2.1_255</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
