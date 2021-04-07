@@ -1,6 +1,6 @@
 # For more details please visit the github page (https://github.com/Pequla/MinecraftBot)
 token: bot-token-goes-here
-command-prefix: !
+server-ip: your-server-address
 id:
   discord-server: discord-server-id
   admin-role: role-id

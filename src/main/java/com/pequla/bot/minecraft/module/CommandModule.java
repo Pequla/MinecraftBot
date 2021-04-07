@@ -18,11 +18,14 @@ public class CommandModule extends ListenerAdapter {
     public CommandModule(MinecraftBot plugin) {
         this.plugin = plugin;
         this.map = new HashMap<>();
-        map.put(plugin.getPrefix() + "status", new StatusCommand());
-        map.put(plugin.getPrefix() + "online", new StatusCommand());
-        map.put(plugin.getPrefix() + "seed", new SeedCommand());
-        map.put(plugin.getPrefix() + "spawn", new SpawnCommand());
-        map.put(plugin.getPrefix() + "rcon", new RconCommand());
+        StatusCommand status = new StatusCommand();
+        map.put("!status", status);
+        map.put("!online", status);
+        map.put("!seed", new SeedCommand());
+        map.put("!spawn", new SpawnCommand());
+        map.put("!rcon", new RconCommand());
+        map.put("!ip", new IpCommand());
+        map.put("!help", new HelpCommand());
     }
 
     @Override
