@@ -8,3 +8,4 @@ id:
   death-channel: channel-id
   join-leave-channel: channel-id
   bot-commands-channel: channel-id
+  chat-channel: channel-id

@@ -1,5 +1,6 @@
 package com.pequla.bot.minecraft;
 
+import com.pequla.bot.minecraft.event.PlayerChat;
 import com.pequla.bot.minecraft.event.PlayerDeath;
 import com.pequla.bot.minecraft.event.PlayerJoin;
 import com.pequla.bot.minecraft.event.PlayerLeave;
@@ -8,8 +9,8 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.SelfUser;
-import org.bukkit.Server;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.login.LoginException;
@@ -26,6 +27,7 @@ public final class MinecraftBot extends JavaPlugin {
     private final String deathChannel;
     private final String joinLeaveChannel;
     private final String botCommandsChannel;
+    private final String chatChannel;
     private JDA jda;
 
     public MinecraftBot() {
@@ -42,6 +44,7 @@ public final class MinecraftBot extends JavaPlugin {
         this.deathChannel = config.getString("id.death-channel");
         this.joinLeaveChannel = config.getString("id.join-leave-channel");
         this.botCommandsChannel = config.getString("id.bot-commands-channel");
+        this.chatChannel = config.getString("id.chat-channel");
     }
 
     @Override
@@ -66,10 +69,11 @@ public final class MinecraftBot extends JavaPlugin {
             } catch (LoginException e) {
                 handleException(e);
             }
-            Server server = getServer();
-            server.getPluginManager().registerEvents(new PlayerJoin(this), this);
-            server.getPluginManager().registerEvents(new PlayerLeave(this), this);
-            server.getPluginManager().registerEvents(new PlayerDeath(this), this);
+            PluginManager manager = getServer().getPluginManager();
+            manager.registerEvents(new PlayerJoin(this), this);
+            manager.registerEvents(new PlayerLeave(this), this);
+            manager.registerEvents(new PlayerDeath(this), this);
+            manager.registerEvents(new PlayerChat(this), this);
         } else {
             logger.warning("Bot token hasn't been configured");
             logger.warning("Make sure you change it in config.yml");
@@ -115,6 +119,10 @@ public final class MinecraftBot extends JavaPlugin {
 
     public String getBotCommandsChannel() {
         return botCommandsChannel;
+    }
+
+    public String getChatChannel() {
+        return chatChannel;
     }
 
     public JDA getJda() {

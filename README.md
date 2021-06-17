@@ -22,7 +22,7 @@ id:
   death-channel: channel-id
   join-leave-channel: channel-id
   bot-commands-channel: channel-id
-
+  chat-channel: channel-id
 ```
 Now replace  `bot-token-goes-here` with the bot token you copied from the Discord developer page of your application. Chose your own command prefix, but you can also stick with defaults.
 
