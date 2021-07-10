@@ -4,6 +4,7 @@ import com.pequla.bot.minecraft.event.PlayerChat;
 import com.pequla.bot.minecraft.event.PlayerDeath;
 import com.pequla.bot.minecraft.event.PlayerJoin;
 import com.pequla.bot.minecraft.event.PlayerLeave;
+import com.pequla.bot.minecraft.module.ChatModule;
 import com.pequla.bot.minecraft.module.CommandModule;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -55,6 +56,7 @@ public final class MinecraftBot extends JavaPlugin {
                 jda = JDABuilder.createDefault(token)
                         .setActivity(Activity.playing("Minecraft"))
                         .addEventListeners(new CommandModule(this))
+                        .addEventListeners(new ChatModule(this))
                         .build();
                 try {
                     jda.awaitReady();
